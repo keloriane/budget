@@ -13,15 +13,17 @@ datasource db {
 
 model User {
   id         Int      @id @default(autoincrement())
-  firstname  String
-  lastname   String
   email      String   @unique
+  username   String   @unique
   password   String
-  avatar     String
-  created_at DateTime @default(now())
+  firstname  String?
+  lastname   String?
+  avatar     String?
   balance    Balance?
   budget     Budget?
   expense    Expense?
+  created_at DateTime @default(now())
+  updateAt   DateTime @updatedAt
 }
 
 model Expense {
